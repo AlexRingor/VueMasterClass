@@ -11,24 +11,22 @@
 	</div>
 </template>
 
-<script>
+<script setup>
 import sourceData from '@/data.json'
-export default {
-  data () {
-    return {
-      threads: sourceData.threads,
-      posts: sourceData.posts,
-      users: sourceData.users
-    }
-  },
-  methods: {
-    postById (postId) {
-      return this.posts.find(p => p.id === postId)
-    },
-    userById (postId) {
-      return this.users.find(u => u.id === postId)
-    }
-  }
+// utility function for reactive data
+// reactive function is only user for object and arrays, for booleans, strings, etc. ref is used
+// when working with ref, you must use .value to access data
+import { ref } from 'vue'
+
+const threads = ref(sourceData.threads)
+const posts = ref(sourceData.posts)
+const users = ref(sourceData.users)
+
+function postById (postId) {
+  return posts.value.find(p => p.id === postId)
+}
+function userById (postId) {
+  return users.value.find(u => u.id === postId)
 }
 
 </script>
