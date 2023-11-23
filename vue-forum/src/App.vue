@@ -2,7 +2,7 @@
   <div>
     <img alt="Vue logo" src="./assets/logo.png">
     <div class="container">
-      <router-view/>
+      <router-view></router-view>
     </div>
   </div>
 </template>
